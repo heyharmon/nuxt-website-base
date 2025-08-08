@@ -18,7 +18,7 @@
           </div>
           
           <h1 class="text-3xl md:text-4xl font-black leading-tight mb-6 text-gray-800 uppercase tracking-tight">
-            APPOINTMENT REQUESTED!
+            Appointment Requested!
           </h1>
           
           <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">

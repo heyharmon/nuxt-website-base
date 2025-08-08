@@ -15,17 +15,17 @@
           <h3 class="text-lg font-bold mb-4 text-[#e9ca5d]">Service Areas</h3>
           <ul class="space-y-2">
             <li>
-              <NuxtLink to="/service-areas/salt-lake-city" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
+              <NuxtLink to="#" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
                 Salt Lake City
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/service-areas/davis-county" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
+              <NuxtLink to="#" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
                 Davis County
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/service-areas/weber-county" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
+              <NuxtLink to="#" class="text-gray-300 hover:text-[#e9ca5d] transition-colors no-underline">
                 Weber County
               </NuxtLink>
             </li>
