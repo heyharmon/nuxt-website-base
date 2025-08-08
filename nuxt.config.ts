@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
+import site from './config/site.config'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
@@ -15,8 +16,8 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  
-  css: ['~/assets/css/main.css'],
+
+  css: ['~/assets/css/theme-variables.css','~/assets/css/main.css'],
 
   image: {
     domains: ['images.unsplash.com']
@@ -24,33 +25,30 @@ export default defineNuxtConfig({
 
   fonts: {
     defaults: {
-        weights: [400],
-        styles: ['normal', 'italic'],
-        subsets: [
-          'cyrillic-ext',
-          'cyrillic',
-          'greek-ext',
-          'greek',
-          'vietnamese',
-          'latin-ext',
-          'latin',
-        ]
-      }
+      weights: [400],
+      styles: ['normal', 'italic'],
+      subsets: [
+        'cyrillic-ext',
+        'cyrillic',
+        'greek-ext',
+        'greek',
+        'vietnamese',
+        'latin-ext',
+        'latin',
+      ]
+    }
   },
-  
+
   app: {
     head: {
-      title: 'Riley\'s Mailboxes - Fresh Mailboxes, Fresh Curb Appeal',
+      title: site.meta.title,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Riley\'s Mailboxes - Locally owned mailbox installation and renovation services with satisfaction guaranteed.' }
+        { name: 'description', content: site.meta.description }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/images/favicon/favicon.ico' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/favicon/apple-touch.ong' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicon/favicon-32x32.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicon/favicon-16x16.png' }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   }

@@ -1,60 +1,93 @@
 <template>
+  <div>
     <TheHeader />
-    <Hero 
-        title="We replace mailboxes in Northern Utah" 
-        description="Locally Owned • Satisfaction Guaranteed"
-        ctaText="Makeover My Mailbox for $380"
-        ctaLink="/book"
-        backgroundAlt="Beautiful home with fresh mailbox"
+    <Hero
+      :title="heroContent.title"
+      :description="heroContent.description"
+      :cta-text="heroContent.ctaText"
+      :cta-link="heroContent.ctaLink"
+      :background-image="heroContent.backgroundImage"
+      height="lg"
+      variant="default"
     />
-    <Feature 
-        title="Affordable mailbox makeovers by father & son"
-        description="What started as a weekend project that sparked a business. We are reviving Centerville's streets one mailbox at a time."
-        imageSrc="/images/homepage/before-after.png"
-        imageAlt="White mailbox on wooden post"
+    <Feature
+      v-if="features.main"
+      :title="features.main.title"
+      :description="features.main.description"
+      :image-src="features.main.image"
+      :image-alt="features.main.imageAlt"
+      :list-items="features.main.items"
     />
-    <Columns 
-        title="How it works"
-        :show-numbers="true"
-        numbers-background-color="bg-[#d6ab13]"
-        :steps="[
-          {
-            title: 'Choose mailbox options',
-            description: 'Pick a post style, mailbox color and addons.'
-          },
-          {
-            title: 'Schedule',
-            description: 'Pick a date and time that works for you.'
-          },
-          {
-            title: 'Install day',
-            description: 'We install, clean up and wave goodbye.'
-          }
-        ]"
+    <Columns
+      v-if="process.enabled"
+      :title="process.title"
+      :subtitle="process.subtitle"
+      :steps="process.steps"
+      :show-numbers="true"
     />
-    <CtaSection 
-        background-image="/images/homepage/green-house.png"
-        background-alt="Beautiful home with fresh mailbox"
-        title="Ready for a curb-appeal upgrade?"
-        description="Let's refresh your mailbox"
-        primary-cta-text="Book Now"
-        primary-cta-link="/book"
+    <CtaSection
+      :title="cta.title"
+      :description="cta.description"
+      :primary-cta-text="cta.primaryText"
+      :primary-cta-link="cta.primaryLink"
+      :background-image="cta.backgroundImage"
     />
     <TheFooter />
+  </div>
 </template>
 
 <script setup>
+import { useTheme } from '~/composables/useTheme'
+
+const { site } = useTheme()
+
+const heroContent = {
+  title: 'Welcome to Our Company',
+  description: 'We provide exceptional services to help your business grow',
+  ctaText: 'Get Started',
+  ctaLink: '/contact',
+  backgroundImage: '/images/hero-bg.jpg'
+}
+
+const features = {
+  main: {
+    title: 'What We Do',
+    description: 'We specialize in delivering high-quality solutions tailored to your needs.',
+    image: '/images/feature-main.jpg',
+    imageAlt: 'Our services',
+    items: [
+      { title: 'Professional Service', description: 'Expert team with years of experience' },
+      { title: 'Quality Guaranteed', description: 'We stand behind our work' },
+      { title: 'Affordable Pricing', description: 'Competitive rates without compromising quality' }
+    ]
+  }
+}
+
+const process = {
+  enabled: true,
+  title: 'How It Works',
+  subtitle: 'Our simple three-step process',
+  steps: [
+    { title: 'Consultation', description: 'We discuss your needs and goals' },
+    { title: 'Planning', description: 'We create a customized solution' },
+    { title: 'Execution', description: 'We deliver exceptional results' }
+  ]
+}
+
+const cta = {
+  title: 'Ready to Get Started?',
+  description: 'Contact us today for a free consultation',
+  primaryText: 'Contact Us',
+  primaryLink: '/contact',
+  backgroundImage: '/images/cta-bg.jpg'
+}
+
 useSeoMeta({
-  title: 'Riley\'s Mailboxes - Fresh Mailboxes, Fresh Curb Appeal | Davis County, Utah',
-  description: 'Locally owned mailbox installation and renovation services in Davis County, Utah. Professional mailbox makeovers for $380 with satisfaction guaranteed.',
-  ogTitle: 'Riley\'s Mailboxes - Fresh Mailboxes, Fresh Curb Appeal',
-  ogDescription: 'Locally owned mailbox installation and renovation services in Davis County, Utah. Professional mailbox makeovers for $380 with satisfaction guaranteed.',
-  ogImage: '/images/meta/default-og.png',
-  ogUrl: 'https://rileysmailboxes.com',
-  ogType: 'website',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Riley\'s Mailboxes - Fresh Mailboxes, Fresh Curb Appeal',
-  twitterDescription: 'Locally owned mailbox installation and renovation services in Davis County, Utah. Professional mailbox makeovers for $380 with satisfaction guaranteed.',
-  twitterImage: '/images/meta/default-og.png'
+  title: `${site.meta.title} - ${site.meta.description}`,
+  description: site.meta.description,
+  ogTitle: site.meta.title,
+  ogDescription: site.meta.description,
+  ogImage: site.meta.image,
+  ogUrl: site.meta.url
 })
 </script>

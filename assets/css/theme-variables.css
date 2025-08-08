@@ -1,0 +1,23 @@
+:root {
+  --color-primary: #e9ca5d;
+  --color-primary-hover: #d6ab13;
+  --color-primary-light: #fcf7e8;
+  --color-primary-dark: #c9a50f;
+
+  --color-secondary: #6B7280;
+  --color-secondary-hover: #4B5563;
+  --color-secondary-light: #F3F4F6;
+  --color-secondary-dark: #374151;
+
+  --color-surface-primary: #fcf7e8;
+  --color-surface-secondary: #FFFFFF;
+  --color-surface-tertiary: #F9FAFB;
+
+  --color-text-primary: #262626;
+  --color-text-secondary: #525252;
+  --color-text-inverse: #FFFFFF;
+  --color-text-muted: #737373;
+
+  --font-sans: system-ui, -apple-system, sans-serif;
+  --font-display: system-ui, -apple-system, sans-serif;
+}
